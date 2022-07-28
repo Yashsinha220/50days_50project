@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty:#e0e0e0;
+}
+*{
+    box-sizing: border-box;
+    /* if add any padding or the border it will not effect the width of the box */
+}
+
+body{
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    
+    /* if the flex direction is column than the align items put the item horizontally center */
+    align-items: center ;
+    /* for flex direction row it will set it to the verticall center */
+
+    min-height: 100vh;
+    justify-content: center;
+    /* for justify content we need to add the height for the box to make it in center */
+    margin: 0;
+
+    overflow: hidden;
+    /* dont show the scroll bar */
+}
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+
+}
+
+
+.progress-container::before {
+    content: '';
+    /* whenever we use the content we need to set the content attribute as well */
+    background-color: var(--line-border-empty);
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    transform: translateY(-50%);
+    z-index: -1;
+    /* transition: 0.4s ease; */
+    
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    width: 0%;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: 0.4s ease;
+    
+}
+
+
+.circle{
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--line-border-empty);
+    transition: .4s ease;
+
+}
+
+.circle.active{
+    border-color: var(--line-border-fill);
+
+}
+
+
+.btn{
+    background-color: var(--line-border-fill);
+    color: white;
+    border: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
